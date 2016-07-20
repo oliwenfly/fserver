@@ -14,6 +14,6 @@ function getWeixinAccessToken() {
     $url = C('WEIXIN_ACCESS_TOKEN_URL').'&appid='.C('WEIXIN_APP_ID').'&secret='.C('WEIXIN_APP_APPSECRET');
 
     $http = new HttpClient();
-    $a = $http->curl_https($url);
-    echo $a;
+    $token = $http->curl_https($url);
+    session(C('SESSION_WEIXIN_ACCESS_TOKEN'),$token);
 }

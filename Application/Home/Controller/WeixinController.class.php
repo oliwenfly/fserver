@@ -3,7 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 use Home\Common;
 
-class IndexController extends Controller {
+class WeixinController extends Controller {
 
     public function index(){
         echo 'error';
@@ -15,7 +15,6 @@ class IndexController extends Controller {
      */
     public function valid() {
         $echoStr = $_GET["echostr"];
-        getWeixinAccessToken();
         //valid signature , option
         if($this->checkSignature()){
             echo $echoStr;
@@ -24,6 +23,7 @@ class IndexController extends Controller {
     }
 
     /**
+     * 验证微信返回的签名
      * @return bool
      * @throws Exception
      */
