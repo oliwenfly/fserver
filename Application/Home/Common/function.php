@@ -15,5 +15,6 @@ function getWeixinAccessToken() {
 
     $http = new HttpClient();
     $token = $http->curl_https($url);
-    session(C('SESSION_WEIXIN_ACCESS_TOKEN'),$token);
+    $token = json_decode($token,true);
+    session(C('SESSION_WEIXIN_ACCESS_TOKEN'),$token['access_token']);
 }
